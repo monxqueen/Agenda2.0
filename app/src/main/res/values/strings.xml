@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AgendaApp</string>
+    <string name="agenda">Agenda</string>
+    <string name="new_contact_button">Adicionar novo contato</string>
+    <string name="name_edttext">Nome</string>
+    <string name="add_new_contact_textview">Adicione um novo contato</string>
+    <string name="phone_number">Número</string>
+    <string name="work_radiobtn">Trabalho</string>
+    <string name="personal_radiobtn">Pessoal</string>
+    <string name="submit_btn">Salvar</string>
+    <string name="search">Procurar por nome..</string>
+    <string name="button_description">search button</string>
+</resources>
