@@ -13,11 +13,10 @@ data class Contact(private val name: String, private val number: String, private
         return searchedName == name //true or false
     }
     fun print(personalOrCoworker: Int): String {
-        if(personalOrCoworker == 1){
-            return ("Nome: $name\n Número: $number\n E-mail: $additionalInfo")
-        }
-        else{
-            return ("Nome: $name\n Número: $number\n Referência: $additionalInfo")
+        return if(personalOrCoworker == 1){
+            ("Nome: $name\n Número: $number\n E-mail: $additionalInfo\n")
+        } else{
+            ("Nome: $name\n Número: $number\n Referência: $additionalInfo\n")
         }
     }
 }

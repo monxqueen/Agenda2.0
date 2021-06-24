@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:layout_marginTop="16dp"
+        android:inputType="textCapSentences"
         android:hint="@string/search"
         android:paddingHorizontal="20dp"
         app:layout_constraintEnd_toEndOf="@+id/agendaTxtView"
@@ -40,16 +41,27 @@
         app:layout_constraintTop_toTopOf="@+id/searchEdt"
         android:contentDescription="@string/button_description" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/testTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:background="@color/purple_200"
         android:text="Lista de contatos vem aqui"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchEdt" />
+        app:layout_constraintTop_toBottomOf="@+id/searchEdt" />-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvContacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchEdt"
+        android:layout_marginTop="16dp"
+        tools:listitem="@layout/item_contato"/>
 
 
     <Button
@@ -60,6 +72,17 @@
         android:text="@string/new_contact_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/testTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/rvContacts" />
+
+    <Button
+        android:id="@+id/fullListBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/full_list"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newContactBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

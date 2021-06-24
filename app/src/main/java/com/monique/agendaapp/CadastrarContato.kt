@@ -14,9 +14,9 @@ class CadastrarContato : AppCompatActivity() {
     private lateinit var refEmailEdt: EditText
     private lateinit var submitBtn: Button
     private var addInfo: AddInfo? = null
+    private var turns = 0
     //private val contacts = mutableListOf<Contact>()
-    //private var arrayContacts: Array<Any>? = null
-    private var contacts: MutableList<Contact>? = arrayListOf()
+    private var contacts: MutableList<Contact> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,17 +36,17 @@ class CadastrarContato : AppCompatActivity() {
             val name = nameEdt.text.toString()
             val number = numberEdt.text.toString()
             val refOrEmail = refEmailEdt.text.toString()
-            val additionalInfo: Int
 
             if(name.isNotEmpty()){
                 if(number.isNotEmpty()){
                     if(refOrEmail.isNotEmpty()){
                         //arrayContacts = createContact(name, number, refOrEmail)
-                        createContact(name, number, refOrEmail)
+                        createContact(name, number, refOrEmail,turns)
                         Toast.makeText(this, "Contato criado com sucesso", Toast.LENGTH_SHORT).show()
 
                         val intent = Intent(this, MainActivity::class.java)
-                        intent.putExtra("CONTACTS_KEY", ArrayList(contacts))
+                        /*println("$contacts")
+                        intent.putExtra(CONTACTS_KEY, ArrayList(contacts))*/
                         startActivity(intent)
 
                     }else{
@@ -79,16 +79,22 @@ class CadastrarContato : AppCompatActivity() {
         }
     }
 
-    private fun createContact(name: String, number: String, refOrEmail: String){
-        if(addInfo == AddInfo.COWORKER){
-            contacts?.add(
-                Contact(name, number, refOrEmail, AddInfo.COWORKER)
-            )
+    private fun createContact(name: String, number: String, refOrEmail: String, turns: Int){
+        for(i in 0..turns){
+            if(addInfo == AddInfo.COWORKER){
+                contatos.add(
+                    Contact(name,number,refOrEmail, AddInfo.COWORKER)
+                )
+            }
+            else if(addInfo == AddInfo.PERSONAL){
+                contatos.add(
+                    Contact(name,number,refOrEmail, AddInfo.PERSONAL)
+                )
+            }
         }
-        else if(addInfo == AddInfo.PERSONAL){
-            contacts?.add(
-                Contact(name, number, refOrEmail, AddInfo.PERSONAL)
-            )
-        }
+    }
+
+    companion object {
+        val contatos = arrayListOf<Contact>()
     }
 }
