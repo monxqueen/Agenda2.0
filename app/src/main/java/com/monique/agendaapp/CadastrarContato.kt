@@ -15,7 +15,6 @@ class CadastrarContato : AppCompatActivity() {
     private lateinit var submitBtn: Button
     private var addInfo: AddInfo? = null
     private var turns = 0
-    //private val contacts = mutableListOf<Contact>()
     private var contacts: MutableList<Contact> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
